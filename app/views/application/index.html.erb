@@ -1,0 +1,116 @@
+
+<div id="chartContainer" style="padding: 0; margin: auto; position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 90%; width: 90%;">
+</div>
+ 
+
+  <script type="text/javascript">
+window.setTimeout(function(){ location.reload(); }, 6000);
+  window.onload = function () {
+    var chart = new CanvasJS.Chart("chartContainer",
+    {
+    legend: {
+      horizontalAlign: "right",
+      verticalAlign: "center",
+      fontColor: "#777"
+    },
+    axisX: {
+      lineThickness: 0,
+      labelFormatter: function(e){ return ""; },
+      tickThickness: 0
+    },
+    axisY: {
+      lineThickness: 0,
+      labelFormatter: function(e){ return ""; },
+      tickThickness: 0,
+      gridThickness: 0,
+      minimum: 0,
+      maximum: 126
+    },
+    backgroundColor: "black",
+    data: [
+      <% i = 0 %>
+      <% @entries.each do |k,e| %>
+      {
+        type: "line",
+        name: "<%= k%>",
+        showInLegend: true,
+        color: "<%= line_color(i) %>",
+        markerType: "<%= line_marker(i) %>",
+        <% i += 1 %>
+        dataPoints: [
+        <% count = e.size %>
+        <% e.each do |s| %>
+          { x: <%= to_js_date(s.time) %>, y: <%= s.score %> <% if (count-=1) == 0 -%>
+          , indexLabel: "<%= k%>"
+          <% end -%> },
+        <% end %>
+        ]
+      },
+      <% end %>
+    ]
+ });
+
+chart.render();
+}
+</script>
+
+<!--
+
+#FC0328
+#FF8E08
+#E3D020
+#67F209
+#0DC286
+#5CC3FE
+#AA7BFF
+#FF3495
+#A11017
+#748C33
+#1C5F8F
+#890259
+RGB list for CSS
+
+rgb(252,3,40)
+rgb(255,142,8)
+rgb(227,208,32)
+rgb(103,242,9)
+rgb(13,194,134)
+rgb(92,195,254)
+rgb(170,123,255)
+rgb(255,52,149)
+rgb(161,16,23)
+rgb(116,140,51)
+rgb(28,95,143)
+rgb(137,2,89)
+
+
+HEX json
+
+["#FC0328",
+"#FF8E08",
+"#E3D020",
+"#67F209",
+"#0DC286",
+"#5CC3FE",
+"#AA7BFF",
+"#FF3495",
+"#A11017",
+"#748C33",
+"#1C5F8F",
+"#890259"]
+RGB json
+
+[[252,3,40],
+[255,142,8],
+[227,208,32],
+[103,242,9],
+[13,194,134],
+[92,195,254],
+[170,123,255],
+[255,52,149],
+[161,16,23],
+[116,140,51],
+[28,95,143],
+[137,2,89]]
+
+-->
