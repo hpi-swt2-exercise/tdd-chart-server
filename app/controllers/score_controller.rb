@@ -8,9 +8,7 @@ class ScoreController < ActionController::Base
   private
   
   def score_params
-    params.require(:user)
-    params.require(:score)
-    params.permit(:user, :score)
+    params.require(:user, :score)
   end
   
 end
