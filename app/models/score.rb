@@ -23,6 +23,7 @@ class Score < ActiveRecord::Base
     if user.starts_with? pre then
       self.user = user[pre.length..-1]
     end
+    self.user = user.chomp("/rails-exercise-16")
     self.user = user.chomp("/java-tdd-challenge")
     self.time ||= Time.now
   end

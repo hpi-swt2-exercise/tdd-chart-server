@@ -24,7 +24,7 @@ window.setTimeout(function(){ location.reload(); }, 30000);
       tickThickness: 0,
       gridThickness: 0,
       minimum: 0,
-      maximum: 47
+      maximum: 48
     },
     backgroundColor: "black",
     data: [
@@ -40,9 +40,9 @@ window.setTimeout(function(){ location.reload(); }, 30000);
         dataPoints: [
         <% count = e.size %>
         <% e.each do |s| %>
-          { x: <%= to_js_date(s.time) %>, y: <%= s.score %> <% if (count-=1) == 0 -%>
-          , indexLabel: "<%= k%>"
-          <% end -%> },
+          { x: <%= to_js_date(s.time) %>, y: <%= s.score -%> 
+            <% if (count-=1) == 0 -%> , indexLabel: "<%= k%>" <% end -%>
+          },
         <% end %>
         ]
       },
