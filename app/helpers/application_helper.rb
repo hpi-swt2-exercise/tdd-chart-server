@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def to_js_date(time) 
-    "new Date(" + time.strftime("%Y,%m,%d,%H,%M,%S") + ")"
+    "new Date(#{time.strftime('%Y')},#{time.month-1},#{time.strftime('%d,%H,%M,%S')})";
   end
   
   def line_color(i)
