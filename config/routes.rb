@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
   root 'application#index'
   
+  get 'csv' => 'application#csv'
   get 'score/add' => 'score#add'
     
   # The priority is based upon order of creation: first created -> highest priority.
