@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   
   def index
-    @entries = Score.all.group_by { |e| e.user }
+    @entries = Score.all.order(time: :asc).group_by { |e| e.user }
   end
   
   def csv
