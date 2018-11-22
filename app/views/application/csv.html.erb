@@ -1,0 +1,4 @@
+user;time;score<br>
+<% @entries.each do |e| %>
+  <%= "#{e.user};#{e.time.strftime('%Y-%m-%d %H:%M:%S')};#{e.score}" %><br>
+<% end %>
