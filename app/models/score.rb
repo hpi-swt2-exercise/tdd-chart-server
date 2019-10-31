@@ -19,13 +19,10 @@ class Score < ActiveRecord::Base
   private
   
   def init
-    pre = "hpi-swt2-exercise/rails-exercise-18-"
+    pre = "hpi-swt2-exercise/rails-exercise-19-"
     if user.starts_with? pre then
       self.user = user[pre.length..-1]
     end
-    self.user = user.chomp("/rails-exercise-16")
-    self.user = user.chomp("/java-tdd-challenge")
-    self.user = user.chomp("/py-twitter-bot")
     self.time ||= Time.now
   end
 end
