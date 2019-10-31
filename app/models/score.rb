@@ -19,7 +19,7 @@ class Score < ActiveRecord::Base
   private
   
   def init
-    pre = "hpi-swt2-exercise/rails-exercise-19-"
+    pre = "swt2-intro-exercise/rails-exercise-19-"
     if user.starts_with? pre then
       self.user = user[pre.length..-1]
     end
