@@ -19,10 +19,8 @@ class Score < ActiveRecord::Base
   private
   
   def init
-    pre = "swt2-intro-exercise/rails-exercise-19-"
-    if user.starts_with? pre then
-      self.user = user[pre.length..-1]
-    end
+    prefix = "swt2-intro-exercise/rails-exercise-19-"
+    self.user.slice! prefix
     self.time ||= Time.now
   end
 end
