@@ -27,6 +27,7 @@
     data: [
       <% i = 0 %>
       <% @entries.each do |k,e| %>
+      <% k.slice! 'swt2-intro-exercise/rails-exercise-19-' %>
       {
         type: "line",
         name: "<%= k %>".replace('swt2-intro-exercise/rails-exercise-19-',''),
@@ -38,7 +39,7 @@
         <% count = e.size %>
         <% e.each do |s| %>
           { x: <%= to_js_date(s.time) %>, y: <%= s.score -%> 
-            <% if (count-=1) == 0 -%> , indexLabel: "<%= k%>" <% end -%>
+            <% if (count-=1) == 0 -%> , indexLabel: "<%= k %>".replace('swt2-intro-exercise/rails-exercise-19-','') <% end -%>
           },
         <% end %>
         ]
