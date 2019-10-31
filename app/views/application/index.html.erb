@@ -29,7 +29,7 @@
       <% @entries.each do |k,e| %>
       {
         type: "line",
-        name: "<%= k%>",
+        name: "<%= k %>".replace('swt2-intro-exercise/rails-exercise-19-',''),
         showInLegend: true,
         color: "<%= line_color(i) %>",
         markerType: "<%= line_marker(i) %>",
